@@ -14,8 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600&display=swap">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+
+<div id="progress" aria-hidden="true"></div>
 
 <header class="hero" id="top">
   <img class="logo" src="assets/logo.png" width="277" height="212" alt="Alfredo - Pizza e Cucina">
@@ -25,6 +28,16 @@
     Il menù, curato con attenzione e passione, offre una varietà di opzioni
     per soddisfare tutti i palati.
   </h1>
+  <script>
+  // Spezza il benvenuto in parole, per farle salire una alla volta
+  (function () {
+    var h = document.querySelector(".welcome"), parole = h.textContent.trim().split(/\s+/);
+    h.setAttribute("aria-label", parole.join(" "));
+    h.innerHTML = parole.map(function (p, i) {
+      return '<span class="parola" aria-hidden="true"><span style="--i:' + i + '">' + p.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</span></span>";
+    }).join(" ");
+  })();
+  </script>
 
   <nav class="actions" aria-label="Contatti e collegamenti">
     <div class="group">
@@ -62,93 +75,93 @@
 
   <section class="band orange">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Stuzzichini</h2>
         <p>Gli stuzzichini sono un trionfo di sapori, da "Dippers mc cain" a base di patate sfogliate consegnate con due bustine di salse, a "Gamberi cornflakes" croccanti e fritti. Ogni opzione è pensata per soddisfare il desiderio di qualcosa di gustoso e sfizioso.</p>
       </div>
-      <img src="assets/stuzzichini-1.jpg" width="378" height="284" loading="lazy" alt="Gamberi cornflakes croccanti e fritti">
-      <img src="assets/stuzzichini-2.jpg" width="377" height="283" loading="lazy" alt="Patate sfogliate Dippers">
-      <img src="assets/stuzzichini-3.jpg" width="378" height="283" loading="lazy" alt="Olive ripiene fritte">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/stuzzichini-1.jpg" width="378" height="284" loading="lazy" alt="Gamberi cornflakes croccanti e fritti"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/stuzzichini-2.jpg" width="377" height="283" loading="lazy" alt="Patate sfogliate Dippers"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/stuzzichini-3.jpg" width="378" height="283" loading="lazy" alt="Olive ripiene fritte"></figure>
     </div>
   </section>
 
   <section class="band beige">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Pizze Alfredo</h2>
         <p>Le pizze sono il fiore all'occhiello di "Alfredo". Dalla classica "Margherita" alle creazioni più audaci come "Divina" con bufala affumicata, zucchine grigliate, speck e pan grattato, ogni pizza è un capolavoro di sapori freschi e ingredienti di alta qualità.</p>
       </div>
-      <img src="assets/pizze-alfredo-1.jpg" width="378" height="284" loading="lazy" alt="Pizza con zucchine grigliate e speck">
-      <img src="assets/pizze-alfredo-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Margherita">
-      <img src="assets/pizze-alfredo-3.jpg" width="378" height="283" loading="lazy" alt="Farina per l'impasto">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/pizze-alfredo-1.jpg" width="378" height="284" loading="lazy" alt="Pizza con zucchine grigliate e speck"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/pizze-alfredo-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Margherita"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/pizze-alfredo-3.jpg" width="378" height="283" loading="lazy" alt="Farina per l'impasto"></figure>
     </div>
   </section>
 
   <section class="band orange">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Pizze rosse e bianche</h2>
         <p>Le opzioni di pizze rosse, bianche e gluten free offrono una vasta gamma di scelte per soddisfare tutti i gusti. Dalla classica "Diavola" alla raffinata "Cerignolese" con bocconcino di fiordilatte, pomodorino fresco a fette, rucola e un filo d'olio, ogni pizza è un'esplosione di sapori unici.</p>
       </div>
-      <img src="assets/pizze-rosse-bianche-1.jpg" width="378" height="284" loading="lazy" alt="Pizza bianca con salmone, capperi e mandorle">
-      <img src="assets/pizze-rosse-bianche-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Diavola">
-      <img src="assets/pizze-rosse-bianche-3.jpg" width="378" height="283" loading="lazy" alt="Pizza rossa con verdure grigliate">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/pizze-rosse-bianche-1.jpg" width="378" height="284" loading="lazy" alt="Pizza bianca con salmone, capperi e mandorle"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/pizze-rosse-bianche-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Diavola"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/pizze-rosse-bianche-3.jpg" width="378" height="283" loading="lazy" alt="Pizza rossa con verdure grigliate"></figure>
     </div>
   </section>
 
   <section class="band beige">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Nuove proposte</h2>
         <p>Le ultime aggiunte al menù includono pizze straordinarie come "DEL CAPITANO" con tonno in olio, cipolla rossa, capperi, melanzane fritte e salame piccante, o la sofisticata "Sunflower" con pomodorino giallo, valeriana, capocollo, stracciatella e granella di pistacchio.</p>
       </div>
-      <img src="assets/nuove-proposte-1.jpg" width="378" height="284" loading="lazy" alt="Pizza bianca con patate">
-      <img src="assets/nuove-proposte-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Sunflower">
-      <img src="assets/nuove-proposte-3.jpg" width="378" height="283" loading="lazy" alt="Pizza Del Capitano">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/nuove-proposte-1.jpg" width="378" height="284" loading="lazy" alt="Pizza bianca con patate"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/nuove-proposte-2.jpg" width="378" height="283" loading="lazy" alt="Pizza Sunflower"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/nuove-proposte-3.jpg" width="378" height="283" loading="lazy" alt="Pizza Del Capitano"></figure>
     </div>
   </section>
 
   <section class="band orange">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Carne grigliata</h2>
         <p>Per gli amanti della carne, la pizzeria offre una grigliata mista su un letto di rucola, composta da una bistecca di maiale, salsicce di maiale e costatine di agnello. Un'opzione deliziosa per chi cerca sapori intensi e succulenti.</p>
       </div>
-      <img src="assets/carne-grigliata-1.jpg" width="378" height="284" loading="lazy" alt="Grigliata mista con verdure">
-      <img src="assets/carne-grigliata-2.jpg" width="378" height="283" loading="lazy" alt="Spiedini di carne alla griglia">
-      <img src="assets/carne-grigliata-3.jpg" width="378" height="283" loading="lazy" alt="Hamburger alla griglia su letto di rucola">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/carne-grigliata-1.jpg" width="378" height="284" loading="lazy" alt="Grigliata mista con verdure"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/carne-grigliata-2.jpg" width="378" height="283" loading="lazy" alt="Spiedini di carne alla griglia"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/carne-grigliata-3.jpg" width="378" height="283" loading="lazy" alt="Hamburger alla griglia su letto di rucola"></figure>
     </div>
   </section>
 
   <section class="band orange">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Dessert da Tommasino</h2>
         <p>Per chi ha esigenze alimentari particolari, "Alfredo" presenta una deliziosa selezione di dessert senza glutine, realizzati artigianalmente da Tommasino di Manfredonia. Dai classici come la "Cassata Tommasino pistacchio e ricotta" al sorprendente "Rocher Tommasino" con cuore di crema alla nocciola Piemonte IGP, ogni dolce è un'opera d'arte senza glutine da gustare con piacere.</p>
       </div>
-      <img src="assets/dessert-1.jpg" width="378" height="284" loading="lazy" alt="Dessert al limone Tommasino">
-      <img src="assets/dessert-2.jpg" width="378" height="283" loading="lazy" alt="Cassata Tommasino pistacchio e ricotta">
-      <img src="assets/dessert-3.jpg" width="378" height="283" loading="lazy" alt="Semifreddo Tommasino">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/dessert-1.jpg" width="378" height="284" loading="lazy" alt="Dessert al limone Tommasino"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/dessert-2.jpg" width="378" height="283" loading="lazy" alt="Cassata Tommasino pistacchio e ricotta"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/dessert-3.jpg" width="378" height="283" loading="lazy" alt="Semifreddo Tommasino"></figure>
     </div>
   </section>
 
   <section class="band beige">
     <div class="wrap">
-      <div class="text">
+      <div class="text reveal">
         <h2>Birre e bevande</h2>
         <p>Per accompagnare le prelibatezze, "Alfredo" offre una selezione di birre, dalla classica "Peroni" all'artigianale "GHOSST", e una varietà di bevande tra cui Coca Cola, Fanta e tè.</p>
       </div>
-      <img src="assets/birre-bevande-1.jpg" width="378" height="284" loading="lazy" alt="Birra Peroni alla spina">
-      <img src="assets/birre-bevande-2.jpg" width="378" height="283" loading="lazy" alt="Peroni Nastro Azzurro in bottiglia">
-      <img src="assets/birre-bevande-3.jpg" width="378" height="283" loading="lazy" alt="Coca Cola">
+      <figure class="foto reveal" data-da="dx" data-delay="1"><img src="assets/birre-bevande-1.jpg" width="378" height="284" loading="lazy" alt="Birra Peroni alla spina"></figure>
+      <figure class="foto reveal" data-da="sx" data-delay="2"><img src="assets/birre-bevande-2.jpg" width="378" height="283" loading="lazy" alt="Peroni Nastro Azzurro in bottiglia"></figure>
+      <figure class="foto reveal" data-da="dx" data-delay="3"><img src="assets/birre-bevande-3.jpg" width="378" height="283" loading="lazy" alt="Coca Cola"></figure>
     </div>
   </section>
 
 </main>
 
 <footer class="band beige closing">
-  <p class="outro">"Alfredo - Pizza e Cucina" è più di una pizzeria, è un viaggio attraverso i sapori autentici dell'Italia, serviti con passione e maestria. Un luogo dove ogni boccone è un'esperienza indimenticabile. Buon appetito!</p>
-  <address>Viale Russia, 11, 71042 Cerignola FG</address>
+  <p class="outro reveal" data-da="su">"Alfredo - Pizza e Cucina" è più di una pizzeria, è un viaggio attraverso i sapori autentici dell'Italia, serviti con passione e maestria. Un luogo dove ogni boccone è un'esperienza indimenticabile. Buon appetito!</p>
+  <address class="reveal" data-da="su" data-delay="1">Viale Russia, 11, 71042 Cerignola FG</address>
   <a class="back" href="#top">Torna Su</a>
 </footer>
 
@@ -168,6 +181,26 @@ document.querySelectorAll("[data-link]").forEach(function (a) {
   if (url) { a.href = url; if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; } }
   else a.hidden = true;
 });
+// Comparsa allo scorrimento
+var daRivelare = document.querySelectorAll(".reveal");
+if (!("IntersectionObserver" in window)) {
+  daRivelare.forEach(function (el) { el.classList.add("visible"); });
+} else {
+  var oss = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) {
+      if (v.isIntersecting) { v.target.classList.add("visible"); oss.unobserve(v.target); }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+  daRivelare.forEach(function (el) { oss.observe(el); });
+}
+// Barra di avanzamento
+var barra = document.getElementById("progress");
+function avanza() {
+  var d = document.documentElement, max = d.scrollHeight - d.clientHeight;
+  barra.style.width = (max > 0 ? (d.scrollTop / max) * 100 : 0) + "%";
+}
+window.addEventListener("scroll", avanza, { passive: true });
+avanza();
 document.querySelectorAll(".group").forEach(function (g) {
   if (!g.querySelector("a:not([hidden])")) g.hidden = true;
 });
