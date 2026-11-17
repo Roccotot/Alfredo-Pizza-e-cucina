@@ -18,9 +18,10 @@
 </head>
 <body>
 
-<div id="progress" aria-hidden="true"></div>
+<a id="pizza" href="#top" aria-label="Torna su"><svg viewBox="0 0 56 56" aria-hidden="true"></svg></a>
 
 <header class="hero" id="top">
+  <div class="braci" aria-hidden="true"></div>
   <img class="logo" src="assets/logo.png" width="277" height="212" alt="Alfredo - Pizza e Cucina">
   <h1 class="welcome">
     Benvenuti da "Alfredo - Pizza e Cucina", il luogo dove il gusto e la tradizione
@@ -193,11 +194,32 @@ if (!("IntersectionObserver" in window)) {
   }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
   daRivelare.forEach(function (el) { oss.observe(el); });
 }
-// Barra di avanzamento
-var barra = document.getElementById("progress");
+// Braci che salgono dal forno, nella testata
+var braci = document.querySelector(".braci");
+for (var i = 0; i < 18; i++) {
+  var b = document.createElement("i");
+  b.style.cssText = "--x:" + (5 + Math.random() * 90).toFixed(1) + "%;--s:" + (2 + Math.random() * 3).toFixed(1) +
+    "px;--d:" + (5 + Math.random() * 6).toFixed(1) + "s;--r:" + (Math.random() * 8).toFixed(1) +
+    "s;--dx:" + (Math.random() * 80 - 40).toFixed(0) + "px";
+  braci.appendChild(b);
+}
+// Pizza di avanzamento: una fetta in più ogni ottavo di pagina
+var pizza = document.getElementById("pizza"), svg = pizza.querySelector("svg"), fette = [];
+function punto(r, g) { var a = (g - 90) * Math.PI / 180; return (28 + r * Math.cos(a)).toFixed(2) + "," + (28 + r * Math.sin(a)).toFixed(2); }
+function spicchio(r, g) { return "M28,28 L" + punto(r, g + 1) + " A" + r + "," + r + " 0 0 1 " + punto(r, g + 44) + " Z"; }
+var disegno = '<circle cx="28" cy="28" r="27" fill="#6b4a2b"/><circle cx="28" cy="28" r="25" fill="#8b6139"/>';
+for (var f = 0; f < 8; f++) {
+  var g = f * 45, c = punto(13, g + 22).split(",");
+  disegno += '<g class="fetta"><path d="' + spicchio(23, g) + '" fill="#e0a458"/><path d="' + spicchio(19, g) +
+    '" fill="#f6d27a"/><circle cx="' + c[0] + '" cy="' + c[1] + '" r="3" fill="#c0392b"/></g>';
+}
+svg.innerHTML = disegno;
+fette = svg.querySelectorAll(".fetta");
 function avanza() {
   var d = document.documentElement, max = d.scrollHeight - d.clientHeight;
-  barra.style.width = (max > 0 ? (d.scrollTop / max) * 100 : 0) + "%";
+  var quota = max > 0 ? d.scrollTop / max : 0, n = Math.ceil(quota * 8 - 0.02);
+  pizza.classList.toggle("mostra", d.scrollTop > 200);
+  fette.forEach(function (el, i) { el.classList.toggle("servita", i < n); });
 }
 window.addEventListener("scroll", avanza, { passive: true });
 avanza();
